@@ -1,10 +1,15 @@
 ﻿using System;
-namespace BiblioApi
+using Microsoft.EntityFrameworkCore;
+
+namespace BiblioApi.Models
 {
-    public class TodoListContext
+    public class TodoListContext : DbContext
     {
-        public TodoListContext()
+        public TodoListContext(DbContextOptions<TodoListContext> options)
+            : base(options)
         {
         }
+
+        public DbSet<TodoList> TodoLists { get; set; }
     }
 }

@@ -80,7 +80,11 @@ namespace BiblioApi.Controllers
             _context.TodoLists.Add(todoList);
             await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetTodoList", new { id = todoList.Id }, todoList);
+            return CreatedAtAction(
+                    nameof(GetTodoList),
+                    new { id = todoList.Id },
+                    todoList
+                );
         }
 
         // DELETE: api/TodoLists/5

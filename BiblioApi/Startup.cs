@@ -10,6 +10,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
+using BiblioApi.Models;
 
 namespace BiblioApi
 {
@@ -27,6 +29,8 @@ namespace BiblioApi
         {
 
             services.AddControllers();
+            services.AddDbContext<TodoListContext>(opt =>
+                opt.UseInMemoryDatabase("TodoList"));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
